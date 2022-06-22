@@ -1,0 +1,3 @@
+/home/pi/LeptonModule/software/LeptonSDKEmb32PUB/CMakeFiles/rebuild_cache.dir
+/home/pi/LeptonModule/software/LeptonSDKEmb32PUB/CMakeFiles/LeptonSDK.dir
+/home/pi/LeptonModule/software/LeptonSDKEmb32PUB/CMakeFiles/edit_cache.dir

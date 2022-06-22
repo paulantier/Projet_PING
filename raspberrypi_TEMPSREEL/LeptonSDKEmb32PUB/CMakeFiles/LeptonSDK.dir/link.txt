@@ -1,0 +1,2 @@
+/usr/bin/ar qc libLeptonSDK.a  CMakeFiles/LeptonSDK.dir/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c.o CMakeFiles/LeptonSDK.dir/LEPTON_AGC.c.o CMakeFiles/LeptonSDK.dir/LEPTON_I2C_Protocol.c.o CMakeFiles/LeptonSDK.dir/LEPTON_I2C_Service.c.o CMakeFiles/LeptonSDK.dir/LEPTON_OEM.c.o CMakeFiles/LeptonSDK.dir/LEPTON_SDK.c.o CMakeFiles/LeptonSDK.dir/LEPTON_SYS.c.o CMakeFiles/LeptonSDK.dir/LEPTON_VID.c.o CMakeFiles/LeptonSDK.dir/crc16fast.c.o CMakeFiles/LeptonSDK.dir/raspi_I2C.c.o
+/usr/bin/ranlib libLeptonSDK.a
