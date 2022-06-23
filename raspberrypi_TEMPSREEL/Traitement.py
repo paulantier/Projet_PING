@@ -14,11 +14,40 @@ from operator import *
 import matplotlib.pyplot as plt
 from drawnow import drawnow, figure
 
+import RPi.GPIO as GPIO
+# pour les tests
+#import time
+
+
+def controlevitesse(n):
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setwarnings(False)
+    sortie1 = 4
+    sortie2 = 5
+    if (n == 0):
+        GPIO.setup(sortie1,GPIO.OUT)
+        GPIO.output(sortie1,0)
+        GPIO.setup(sortie2,GPIO.OUT)
+        GPIO.output(sortie2,0)
+    if(n==1):
+        GPIO.setup(sortie1,GPIO.OUT)
+        GPIO.output(sortie1,1)
+        GPIO.setup(sortie2,GPIO.OUT)
+        GPIO.output(sortie2,0)
+    if(n==2):
+        GPIO.setup(sortie1,GPIO.OUT)
+        GPIO.output(sortie1,1)
+        GPIO.setup(sortie2,GPIO.OUT)
+        GPIO.output(sortie2,1)
+
 # Initialisation masque
 temp_casserole = 55;
 bornemask = (temp_casserole + 183) / 0.007
 vide = np.zeros((120,160),dtype = bool)
 w=0
+moytotal=0
+nosmoke = Image.open("pasfumee.png")
+pasfumee = np.array(nosmoke)
 
 figure()
 def draw_fig():
@@ -86,6 +115,18 @@ while(1):
         I4 = I4*np.logical_not(I12)
         I4 = I4*I11 
         I4 = I4*maskfinal
+        
+        moy=I4.mean()
+        if moy<0.5:
+            I4=pasfumee
+            
+        moytotal=(moytotal*9+moy)/10
+        if moytotal >5:
+            controlevitesse(2)
+        elif moytotal>1:
+            controlevitesse(1)
+        else:
+            controlevitesse(0)
         
         IMG = Image.fromarray(I4.astype(np.uint8))
         IMGmoins1 = Image.fromarray(I2.astype(np.uint16))
